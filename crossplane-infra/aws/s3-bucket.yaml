@@ -1,0 +1,13 @@
+
+apiVersion: storage.aws.crossplane.io/v1alpha3
+kind: Bucket
+metadata:
+  name: enterprise-bucket
+spec:
+  forProvider:
+    region: us-east-1
+    acl: private
+    versioningConfiguration:
+      status: Enabled
+  providerConfigRef:
+    name: aws-provider

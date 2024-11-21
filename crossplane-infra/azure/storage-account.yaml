@@ -1,0 +1,14 @@
+
+apiVersion: storage.azure.crossplane.io/v1alpha3
+kind: StorageAccount
+metadata:
+  name: enterprise-storage
+spec:
+  forProvider:
+    location: WestEurope
+    resourceGroupName: my-resource-group
+    accountKind: StorageV2
+    sku:
+      name: Standard_LRS
+  providerConfigRef:
+    name: azure-provider

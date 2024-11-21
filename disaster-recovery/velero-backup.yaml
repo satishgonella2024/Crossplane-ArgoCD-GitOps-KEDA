@@ -1,0 +1,9 @@
+
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: daily-backup
+spec:
+  includedNamespaces:
+  - "*"
+  schedule: "0 2 * * *"

@@ -1,0 +1,21 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: global-fruit-apps
+spec:
+  generators:
+    clusterDecision:
+      clusterLabels:
+        environment: production
+  template:
+    metadata:
+      name: "{{cluster.name}}-fruit-app"
+    spec:
+      source:
+        repoURL: 'https://github.com/satishgonella2024/enterprise-k8s-repo'
+        targetRevision: main
+        path: apps/fruit
+      destination:
+        server: "{{cluster.server}}"
+        namespace: default

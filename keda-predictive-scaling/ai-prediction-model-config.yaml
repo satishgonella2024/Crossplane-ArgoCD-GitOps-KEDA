@@ -1,0 +1,7 @@
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-model-config
+data:
+  model-endpoint: http://ai-model-service/predict

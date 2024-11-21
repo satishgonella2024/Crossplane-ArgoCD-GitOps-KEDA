@@ -1,0 +1,19 @@
+
+apiVersion: database.azure.crossplane.io/v1alpha3
+kind: MySQLServer
+metadata:
+  name: enterprise-sql-db
+spec:
+  forProvider:
+    administratorLogin: admin
+    administratorPasswordSecretRef:
+      name: sql-credentials
+      key: password
+    location: EastUS
+    resourceGroupName: my-resource-group
+    sku:
+      name: GP_Gen5_2
+      tier: GeneralPurpose
+      capacity: 2
+  providerConfigRef:
+    name: azure-provider
